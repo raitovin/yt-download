@@ -88,27 +88,27 @@ public class Main {
 					switch (format_selection.getSelectedItem().toString()) {
 						case "3840x2160-60fps":
 							SF = 401;
-							YTDownload(val, SF);
+							YTDownload(val, SF, 140);
 							break;
 						case "3840x2160-30fps":
 							SF = 271;
-							YTDownload(val, SF);
+							YTDownload(val, SF, 140);
 							break;
 						case "3840x2160-24fps":
 							SF = 313;
-							YTDownload(val, SF);
+							YTDownload(val, SF, 140);
 							break;
 						case "1920x1080-60fps":
 							SF = 299;
-							YTDownload(val, SF);
+							YTDownload(val, SF, 140);
 							break;
 						case "1920x1080-30fps":
 							SF = 137;
-							YTDownload(val, SF);
+							YTDownload(val, SF, 140);
 							break;
 						case "1920x1080-24fps":
 							SF = 137;
-							YTDownload(val, SF);
+							YTDownload(val, SF, 140);
 							break;
 						default:
 							
@@ -129,7 +129,7 @@ public class Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
-	public static void YTDownload(String url_input, int format) {
+	public static void YTDownload(String url_input, int format1, int format2) {
 		
 		/***
 		 * 
@@ -159,7 +159,7 @@ public class Main {
 			
 			PrintWriter stdin = new PrintWriter(p.getOutputStream());
 			stdin.println("cd \"" + download_path + "\"");
-			stdin.println(download_path + "\\youtube-dl -f "+ format +" " + url);
+			stdin.println(download_path + "\\youtube-dl -f "+ format1 + "+" + format2 + " " + url);
 			stdin.close();
 			p.waitFor();
 		} catch (Exception e) {
